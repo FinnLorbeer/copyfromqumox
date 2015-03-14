@@ -3,16 +3,18 @@ require 'fileutils'
 
 puts Dir['./*/*']
 
-index = 1
+index = 13
 
-dir = Dir.glob('**/*.txt').sort
+dir = Dir.glob('**/*.JPG').sort
 
 dir.each do |file|
-  puts file
   f = file.to_s
-  puts "copy file #{index}"
-  FileUtils.mv("#{f}", "./new_name_#{index}.txt" )
-  sleep 2
+  puts "#{index}: copy #{f} ==> neuseeland_#{index}.JPG"
+  FileUtils.mv("#{f}", "./neuseeland_#{index}.JPG" )
+  4.times do
+    print '.'
+    sleep 1
+  end
   index += 1
-  puts "done"
+  puts "done", ""
 end
